@@ -228,7 +228,7 @@ export function generateEstimatePdf({ estimate, projectData, contactData, refId 
          .fill()
          .restore();
       doc.font(FONT_BOLD).fontSize(13).fillColor("#FFFFFF")
-         .text("Schedule a 30-minute call →", doc.page.margins.left + 24, ctaY + 12);
+         .text("Schedule a 30-minute call  >", doc.page.margins.left + 24, ctaY + 12);
       doc.font(FONT_REGULAR).fontSize(9.5).fillColor("#FFFFFF")
          .text(SCHEDULE_URL, doc.page.margins.left + 24, ctaY + 32, { link: SCHEDULE_URL });
       doc.y = ctaY + ctaH + 24;
@@ -236,7 +236,7 @@ export function generateEstimatePdf({ estimate, projectData, contactData, refId 
       // ---------- FOOTER ----------
       hairline(C.border, { marginTop: 4, marginBottom: 16 });
       doc.font(FONT_REGULAR).fontSize(9).fillColor(C.secondary)
-         .text("WebCentriq Inc.  ·  hello@webcentriq.com  ·  4.9★ on Clutch from 18 verified reviews", { link: null });
+         .text("WebCentriq Inc.  ·  hello@webcentriq.com  ·  4.9 / 5 on Clutch from 18 verified reviews", { link: null });
       doc.moveDown(0.2);
       doc.font(FONT_REGULAR).fontSize(9).fillColor(C.tertiary)
          .text("San Diego, CA · Markham, ON · Shipping since 2017");
