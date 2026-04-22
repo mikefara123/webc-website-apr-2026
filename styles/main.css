@@ -725,8 +725,9 @@ img, svg, video, iframe { max-width: 100%; height: auto; }
   .wq-footer__brand { grid-column: 1 / -1; }
   .wq-footer__legal { flex-direction: column; align-items: flex-start; gap: 8px; padding-top: 24px; }
 
-  /* Nav */
-  .wq-nav__inner { padding: 0 20px !important; gap: 12px; }
+  /* Nav — logo only on mobile; nav-level CTA is redundant with hero CTA */
+  .wq-nav__inner { padding: 0 20px !important; gap: 12px; justify-content: flex-start; }
+  .wq-nav__inner > .wq-btn { display: none; }
   .wq-logo { font-size: 16px; }
   .wq-logo img { height: 22px; }
 
