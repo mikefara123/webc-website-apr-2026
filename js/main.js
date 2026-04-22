@@ -112,9 +112,9 @@
 
   /* CTA form handling moved to js/estimator.js — new AI-powered estimator flow */
 
-  /* ---------- Vercel Web Analytics (cookieless, consent-gated) ----------
-   * Loaded only when the user accepts our cookie banner. The script is served
-   * from /_vercel/insights/script.js on Vercel (silent 404 in local dev).
+  /* ---------- Vercel Web Analytics + Speed Insights (cookieless, consent-gated) ----------
+   * Both are served same-origin from /_vercel/... on Vercel (silent 404 in local dev).
+   * Neither sets cookies or tracks users across sites.
    */
   function loadVercelAnalytics() {
     if (window.__wqAnalyticsLoaded) return;
@@ -123,6 +123,18 @@
     s.defer = true;
     s.src = "/_vercel/insights/script.js";
     document.head.appendChild(s);
+  }
+  function loadVercelSpeedInsights() {
+    if (window.__wqSpeedInsightsLoaded) return;
+    window.__wqSpeedInsightsLoaded = true;
+    const s = document.createElement("script");
+    s.defer = true;
+    s.src = "/_vercel/speed-insights/script.js";
+    document.head.appendChild(s);
+  }
+  function loadVercelTelemetry() {
+    loadVercelAnalytics();
+    loadVercelSpeedInsights();
   }
 
   /* ---------- Cookie / privacy consent banner ---------- */
@@ -136,7 +148,7 @@
     if (stored) {
       try {
         const parsed = JSON.parse(stored);
-        if (parsed?.choice === "accept") loadVercelAnalytics();
+        if (parsed?.choice === "accept") loadVercelTelemetry();
       } catch (_) { /* ignore malformed */ }
     } else {
       // First visit — delay so banner doesn't flash on during initial paint
@@ -155,7 +167,7 @@
         consentEl.classList.remove("is-visible");
         setTimeout(() => { consentEl.hidden = true; }, 240);
 
-        if (choice === "accept") loadVercelAnalytics();
+        if (choice === "accept") loadVercelTelemetry();
       });
     });
   }

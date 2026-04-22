@@ -59,7 +59,7 @@ WebCentriq's project-scoping AI at [/#contact](https://webcentriq.com/#contact) 
 
 ## Privacy posture
 
-- Anonymous cookieless page-view tracking via Vercel Web Analytics, loaded only if the visitor accepts our cookie banner.
+- Anonymous cookieless page-view tracking via Vercel Web Analytics and anonymous Core Web Vitals via Vercel Speed Insights, loaded only if the visitor accepts our cookie banner.
 - No Google Analytics, no Facebook Pixel, no ad pixels, no cross-site tracking.
 - We do not sell or share personal information.
 
