@@ -628,8 +628,8 @@ img, svg, video, iframe { max-width: 100%; height: auto; }
   .wq-section { padding: 72px 0; }
   .wq-section__header { margin-bottom: 40px; }
 
-  /* Hero */
-  .wq-hero { min-height: auto; padding: 28px 0 56px; }
+  /* Hero — simpler + more breathing room on mobile */
+  .wq-hero { min-height: auto; padding: 56px 0 64px; }
   .wq-hero__inner { gap: 18px; }
   .wq-hero__headline {
     font-size: 28px !important;
@@ -644,8 +644,10 @@ img, svg, video, iframe { max-width: 100%; height: auto; }
     line-height: 1.55;
     overflow-wrap: break-word;
   }
-  .wq-hero__cta { flex-direction: column; align-items: stretch; gap: 10px; }
+  /* Single primary CTA only on mobile — ghost hidden to reduce noise */
+  .wq-hero__cta { display: flex; margin-top: 8px; }
   .wq-hero__cta .wq-btn { justify-content: center; width: 100%; }
+  .wq-hero__cta .wq-btn--ghost { display: none; }
   .wq-hero__mesh { top: -10%; right: -40%; width: 130vw; }
 
   /* Section H2s */
