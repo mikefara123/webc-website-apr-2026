@@ -112,6 +112,19 @@
 
   /* CTA form handling moved to js/estimator.js — new AI-powered estimator flow */
 
+  /* ---------- Vercel Web Analytics (cookieless, consent-gated) ----------
+   * Loaded only when the user accepts our cookie banner. The script is served
+   * from /_vercel/insights/script.js on Vercel (silent 404 in local dev).
+   */
+  function loadVercelAnalytics() {
+    if (window.__wqAnalyticsLoaded) return;
+    window.__wqAnalyticsLoaded = true;
+    const s = document.createElement("script");
+    s.defer = true;
+    s.src = "/_vercel/insights/script.js";
+    document.head.appendChild(s);
+  }
+
   /* ---------- Cookie / privacy consent banner ---------- */
   const CONSENT_KEY = "wq_consent_v1";
   const consentEl = document.getElementById("wq-consent");
@@ -119,8 +132,14 @@
     let stored = null;
     try { stored = localStorage.getItem(CONSENT_KEY); } catch (_) { /* blocked */ }
 
-    if (!stored) {
-      // Delay so banner doesn't flash-on during initial paint
+    // If consent was previously given → load analytics now, skip banner.
+    if (stored) {
+      try {
+        const parsed = JSON.parse(stored);
+        if (parsed?.choice === "accept") loadVercelAnalytics();
+      } catch (_) { /* ignore malformed */ }
+    } else {
+      // First visit — delay so banner doesn't flash on during initial paint
       setTimeout(() => {
         consentEl.hidden = false;
         consentEl.classList.add("is-visible");
@@ -136,8 +155,7 @@
         consentEl.classList.remove("is-visible");
         setTimeout(() => { consentEl.hidden = true; }, 240);
 
-        // If we add analytics later, gate them here:
-        //   if (choice === "accept") loadAnalytics();
+        if (choice === "accept") loadVercelAnalytics();
       });
     });
   }

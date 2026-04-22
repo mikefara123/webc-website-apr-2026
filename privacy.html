@@ -14,8 +14,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500&display=swap"/>
 
-<link rel="stylesheet" href="styles/tokens.css?v=20"/>
-<link rel="stylesheet" href="styles/main.css?v=20"/>
+<link rel="stylesheet" href="styles/tokens.css?v=22"/>
+<link rel="stylesheet" href="styles/main.css?v=22"/>
 </head>
 <body>
 <a href="#top" class="wq-skip">Skip to content</a>
@@ -132,6 +132,11 @@
             <tr>
               <td><a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">Vercel</a></td>
               <td>Hosts the website and serverless functions</td>
+              <td>United States</td>
+            </tr>
+            <tr>
+              <td><a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener">Vercel Web Analytics</a></td>
+              <td>Anonymous, cookieless page-view counts (only loaded if you accept our cookie notice)</td>
               <td>United States</td>
             </tr>
             <tr>
@@ -255,26 +260,32 @@
       </section>
 
       <section class="wq-legal__section">
-        <h2>Cookies.</h2>
-        <p>We use the smallest cookie footprint we can get away with.</p>
+        <h2>Cookies and storage.</h2>
+        <p>We use the smallest footprint we can get away with.</p>
 
         <table class="wq-legal__table">
           <thead>
-            <tr><th>Cookie</th><th>Purpose</th><th>Duration</th><th>First-party?</th></tr>
+            <tr><th>Item</th><th>Purpose</th><th>Duration</th><th>Type</th></tr>
           </thead>
           <tbody>
             <tr>
-              <td><code>wq_consent_v1</code> (localStorage, not a cookie technically)</td>
+              <td><code>wq_consent_v1</code></td>
               <td>Remembers your cookie-notice choice so we stop showing the banner</td>
               <td>Until you clear it</td>
-              <td>Yes</td>
+              <td>First-party localStorage (not a cookie)</td>
+            </tr>
+            <tr>
+              <td>Vercel Web Analytics ping</td>
+              <td>Counts anonymous page views so we know which pages work. Cookieless &mdash; no identifier, no cross-site tracking. Loaded <strong>only if you click "Got it"</strong> on our banner.</td>
+              <td>Session only</td>
+              <td>First-party script, no cookie set</td>
             </tr>
           </tbody>
         </table>
 
-        <p>That's the entire list today. No tracking cookies. No analytics cookies. No ad pixels. No session cookies.</p>
+        <p>That's the entire list. No tracking cookies. No ad pixels. No session cookies. No Google Analytics, no Facebook Pixel.</p>
 
-        <p>If we add web analytics later (probably Plausible or Vercel Analytics, both of which claim cookie-less operation), we'll update this policy and ask for your consent before turning it on.</p>
+        <p>If you decline the cookie banner, Vercel Web Analytics does not load &mdash; you become completely invisible to us beyond your single visit (we still see server-log data like IP and user-agent, used only for rate limiting as described above).</p>
       </section>
 
       <section class="wq-legal__section">
@@ -344,6 +355,6 @@
   <div class="wq-signature" aria-hidden="true">Web<span class="wq-signature__c">C</span>entriq</div>
 </footer>
 
-<script src="js/main.js?v=20" defer></script>
+<script src="js/main.js?v=22" defer></script>
 </body>
 </html>
