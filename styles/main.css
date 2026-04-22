@@ -618,6 +618,8 @@ img, svg, video, iframe { max-width: 100%; height: auto; }
   color: var(--text-secondary);
   max-width: 52ch;
 }
+.wq-hero__sub--mobile { display: none; }
+.wq-hero__sub--desktop { display: block; }
 .wq-hero__cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
 /* ============================================================
    MOBILE (≤600px) — comprehensive overrides so every section fits
@@ -628,23 +630,29 @@ img, svg, video, iframe { max-width: 100%; height: auto; }
   .wq-section { padding: 72px 0; }
   .wq-section__header { margin-bottom: 40px; }
 
-  /* Hero — simpler + more breathing room on mobile */
-  .wq-hero { min-height: auto; padding: 56px 0 64px; }
-  .wq-hero__inner { gap: 18px; }
+  /* Hero — minimal first-fold: H1, 1-line sub, CTA. No eyebrow, no secondary CTA. */
+  .wq-hero { min-height: auto; padding: 72px 0 72px; }
+  .wq-hero__inner { gap: 24px; }
+  .wq-hero .wq-eyebrow--row { display: none; }
   .wq-hero__headline {
-    font-size: 28px !important;
+    font-size: 30px !important;
     max-width: 100% !important;
     letter-spacing: -0.02em !important;
     line-height: 1.1 !important;
   }
-  .wq-hero__sub {
-    font-size: 15px;
+  .wq-hero__sub--desktop { display: none; }
+  .wq-hero__sub--mobile {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--text-secondary);
+    line-height: 1.5;
     max-width: 100%;
-    width: 100%;
-    line-height: 1.55;
-    overflow-wrap: break-word;
   }
-  /* Single primary CTA only on mobile — ghost hidden to reduce noise */
+  /* Single primary CTA on mobile — ghost hidden */
   .wq-hero__cta { display: flex; margin-top: 8px; }
   .wq-hero__cta .wq-btn { justify-content: center; width: 100%; }
   .wq-hero__cta .wq-btn--ghost { display: none; }
