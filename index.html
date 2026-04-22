@@ -48,8 +48,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500&display=swap"/>
 
-<link rel="stylesheet" href="styles/tokens.css?v=24"/>
-<link rel="stylesheet" href="styles/main.css?v=24"/>
+<link rel="stylesheet" href="styles/tokens.css?v=25"/>
+<link rel="stylesheet" href="styles/main.css?v=25"/>
 
 <!-- Structured data: Organization + ProfessionalService + WebSite + FAQPage -->
 <script type="application/ld+json">
@@ -322,38 +322,100 @@
             <p class="wq-flow__desc">Production launch, clean handover, optional month-to-month maintenance.</p>
           </li>
         </ol>
+
+        <div class="wq-section-cta">
+          <a href="#contact" class="wq-section-cta__link">Start yours in 72 hours <span>&rarr;</span></a>
+        </div>
       </div>
     </section>
 
-    <section class="wq-section" id="thesis" data-screen-label="Thesis">
+    <section class="wq-section" id="reviews" data-screen-label="Reviews">
       <div class="wq-container">
         <div class="wq-section__header wq-reveal">
           <div class="wq-eyebrow wq-eyebrow--row">
-            <span>03</span><span class="wq-eyebrow__rule"></span><span>WHO WE BUILD FOR</span>
+            <span>03</span><span class="wq-eyebrow__rule"></span><span>WHAT CLIENTS SAY</span>
           </div>
+          <h2 class="wq-h2" style="max-width: 22ch; margin-top: 32px;">
+            Verified, not curated.
+          </h2>
         </div>
-        <div class="wq-grid-asym-a">
-          <h2 class="wq-h2">One senior owns your code. AI does the busywork. That's the whole trick.</h2>
-          <div class="wq-thesis__body">
-            <p>
-              A traditional agency bills you for a pod of juniors, a project manager, and a
-              timeline measured in quarters. We don't do that. One senior engineer owns your
-              scope end-to-end &mdash; architecture, code, review, ship.
-            </p>
-            <p>
-              AI &mdash; Claude, Cursor, our own pipeline &mdash; handles the parts that used to eat
-              weeks: scaffolding, test generation, refactors, migrations, boilerplate. The
-              parts that should have always been automated. So your senior engineer spends
-              their time on the parts only a human should touch: the architecture, the
-              product judgment, the review.
-            </p>
-            <p>
-              You get a shipped product at a speed traditional agencies cannot match, with
-              code you'd actually want to read. Nine years. Eighty people. 4.9 on Clutch,
-              verified.
-            </p>
-          </div>
+
+        <div class="wq-review-platforms">
+          <a class="wq-review-platform" href="https://clutch.co/profile/webcentriq" target="_blank" rel="noopener">
+            <div class="wq-review-platform__rating">
+              <span class="wq-review-platform__score">4.9</span>
+              <span class="wq-stars" aria-label="4.9 out of 5">
+                <span class="wq-stars__full" style="width: 98%"></span>
+              </span>
+            </div>
+            <div class="wq-review-platform__meta">
+              <div class="wq-mono-xs">CLUTCH &middot; 18 VERIFIED REVIEWS</div>
+              <div class="wq-review-platform__link">Read all on Clutch <span>&rarr;</span></div>
+            </div>
+          </a>
+          <!-- TODO: confirm the exact Google rating + review count from your Google Business Profile, then replace this block with real stars/score. -->
+          <a class="wq-review-platform" href="https://share.google/5YQsh9b47Pxh0Ik0K" target="_blank" rel="noopener">
+            <div class="wq-review-platform__rating">
+              <span class="wq-review-platform__score" aria-hidden="true">&#9733;</span>
+              <span class="wq-review-platform__score-sub">Google Business</span>
+            </div>
+            <div class="wq-review-platform__meta">
+              <div class="wq-mono-xs">VERIFIED LISTING</div>
+              <div class="wq-review-platform__link">Read reviews on Google <span>&rarr;</span></div>
+            </div>
+          </a>
         </div>
+
+        <div class="wq-testimonials">
+          <figure class="wq-testimonial">
+            <blockquote>&ldquo;Their ability to deeply understand the technical and business sides of our platform stood out.&rdquo;</blockquote>
+            <figcaption>
+              <span class="wq-testimonial__name">Aaron McEvoy</span>
+              <span class="wq-mono-xs">FOUNDER &amp; OWNER &middot; DWELZI LLC</span>
+            </figcaption>
+          </figure>
+          <figure class="wq-testimonial">
+            <blockquote>&ldquo;What truly sets WebcentriQ apart is their ownership mentality.&rdquo;</blockquote>
+            <figcaption>
+              <span class="wq-testimonial__name">Hamid Emamali</span>
+              <span class="wq-mono-xs">CTO &middot; TECHNOLOGY &amp; EDUCATION CO.</span>
+            </figcaption>
+          </figure>
+          <figure class="wq-testimonial">
+            <blockquote>&ldquo;Unlike assembly-line software companies, they focus on quality, not just output.&rdquo;</blockquote>
+            <figcaption>
+              <span class="wq-testimonial__name">Pamela Bixler</span>
+              <span class="wq-mono-xs">OWNER &middot; BIXLER SERVICES</span>
+            </figcaption>
+          </figure>
+          <figure class="wq-testimonial">
+            <blockquote>&ldquo;I'm most impressed by their ability to turn my words into an experience.&rdquo;</blockquote>
+            <figcaption>
+              <span class="wq-testimonial__name">Lawrence Cole</span>
+              <span class="wq-mono-xs">FOUNDER &middot; REVWORKS LLC</span>
+            </figcaption>
+          </figure>
+          <figure class="wq-testimonial">
+            <blockquote>&ldquo;WebcentriQ has met every delivery date within budget.&rdquo;</blockquote>
+            <figcaption>
+              <span class="wq-testimonial__name">Jennifer Vines</span>
+              <span class="wq-mono-xs">FOUNDER &amp; CEO &middot; EDDY</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="wq-section-cta">
+          <a href="#contact" class="wq-section-cta__link">Join the next shipped project <span>&rarr;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="wq-section wq-section--quote" data-screen-label="PullQuote">
+      <div class="wq-container wq-quote">
+        <blockquote class="wq-quote__text">
+          &ldquo;Unlike assembly-line software companies, they focus on quality, not just output.&rdquo;
+        </blockquote>
+        <cite class="wq-quote__cite">&mdash; PAMELA BIXLER, OWNER, BIXLER SERVICES &middot; VERIFIED CLUTCH REVIEW</cite>
       </div>
     </section>
 
@@ -399,6 +461,10 @@
             </ul>
             <p class="wq-aistack__note">Humans above the loop. AI below it.</p>
           </div>
+        </div>
+
+        <div class="wq-section-cta">
+          <a href="#contact" class="wq-section-cta__link">Put our AI stack to work <span>&rarr;</span></a>
         </div>
       </div>
     </section>
@@ -474,6 +540,10 @@
             <span>Education</span>
             <span>Logistics</span>
           </div>
+        </div>
+
+        <div class="wq-section-cta">
+          <a href="#contact" class="wq-section-cta__link">Get a price for your scope <span>&rarr;</span></a>
         </div>
       </div>
     </section>
@@ -658,6 +728,10 @@
             </div>
           </article>
         </div>
+
+        <div class="wq-section-cta">
+          <a href="#contact" class="wq-section-cta__link">Build something like this <span>&rarr;</span></a>
+        </div>
       </div>
     </section>
 
@@ -688,161 +762,11 @@
       </div>
     </section>
 
-    <section class="wq-section" id="reviews" data-screen-label="Reviews">
-      <div class="wq-container">
-        <div class="wq-section__header wq-reveal">
-          <div class="wq-eyebrow wq-eyebrow--row">
-            <span>07</span><span class="wq-eyebrow__rule"></span><span>WHAT CLIENTS SAY</span>
-          </div>
-          <h2 class="wq-h2" style="max-width: 22ch; margin-top: 32px;">
-            Verified, not curated.
-          </h2>
-        </div>
-
-        <div class="wq-review-platforms">
-          <a class="wq-review-platform" href="https://clutch.co/profile/webcentriq" target="_blank" rel="noopener">
-            <div class="wq-review-platform__rating">
-              <span class="wq-review-platform__score">4.9</span>
-              <span class="wq-stars" aria-label="4.9 out of 5">
-                <span class="wq-stars__full" style="width: 98%"></span>
-              </span>
-            </div>
-            <div class="wq-review-platform__meta">
-              <div class="wq-mono-xs">CLUTCH &middot; 18 VERIFIED REVIEWS</div>
-              <div class="wq-review-platform__link">Read all on Clutch <span>&rarr;</span></div>
-            </div>
-          </a>
-          <!-- TODO: confirm the exact Google rating + review count from your Google Business Profile, then replace this block with real stars/score. -->
-          <a class="wq-review-platform" href="https://share.google/5YQsh9b47Pxh0Ik0K" target="_blank" rel="noopener">
-            <div class="wq-review-platform__rating">
-              <span class="wq-review-platform__score" aria-hidden="true">&#9733;</span>
-              <span class="wq-review-platform__score-sub">Google Business</span>
-            </div>
-            <div class="wq-review-platform__meta">
-              <div class="wq-mono-xs">VERIFIED LISTING</div>
-              <div class="wq-review-platform__link">Read reviews on Google <span>&rarr;</span></div>
-            </div>
-          </a>
-        </div>
-
-        <div class="wq-testimonials">
-          <figure class="wq-testimonial">
-            <blockquote>&ldquo;Their ability to deeply understand the technical and business sides of our platform stood out.&rdquo;</blockquote>
-            <figcaption>
-              <span class="wq-testimonial__name">Aaron McEvoy</span>
-              <span class="wq-mono-xs">FOUNDER &amp; OWNER &middot; DWELZI LLC</span>
-            </figcaption>
-          </figure>
-          <figure class="wq-testimonial">
-            <blockquote>&ldquo;What truly sets WebcentriQ apart is their ownership mentality.&rdquo;</blockquote>
-            <figcaption>
-              <span class="wq-testimonial__name">Hamid Emamali</span>
-              <span class="wq-mono-xs">CTO &middot; TECHNOLOGY &amp; EDUCATION CO.</span>
-            </figcaption>
-          </figure>
-          <figure class="wq-testimonial">
-            <blockquote>&ldquo;Unlike assembly-line software companies, they focus on quality, not just output.&rdquo;</blockquote>
-            <figcaption>
-              <span class="wq-testimonial__name">Pamela Bixler</span>
-              <span class="wq-mono-xs">OWNER &middot; BIXLER SERVICES</span>
-            </figcaption>
-          </figure>
-          <figure class="wq-testimonial">
-            <blockquote>&ldquo;I'm most impressed by their ability to turn my words into an experience.&rdquo;</blockquote>
-            <figcaption>
-              <span class="wq-testimonial__name">Lawrence Cole</span>
-              <span class="wq-mono-xs">FOUNDER &middot; REVWORKS LLC</span>
-            </figcaption>
-          </figure>
-          <figure class="wq-testimonial">
-            <blockquote>&ldquo;WebcentriQ has met every delivery date within budget.&rdquo;</blockquote>
-            <figcaption>
-              <span class="wq-testimonial__name">Jennifer Vines</span>
-              <span class="wq-mono-xs">FOUNDER &amp; CEO &middot; EDDY</span>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="wq-section wq-section--quote" data-screen-label="PullQuote">
-      <div class="wq-container wq-quote">
-        <blockquote class="wq-quote__text">
-          &ldquo;Unlike assembly-line software companies, they focus on quality, not just output.&rdquo;
-        </blockquote>
-        <cite class="wq-quote__cite">&mdash; PAMELA BIXLER, OWNER, BIXLER SERVICES &middot; VERIFIED CLUTCH REVIEW</cite>
-      </div>
-    </section>
-
-    <section class="wq-section" id="faq" data-screen-label="FAQ">
-      <div class="wq-container">
-        <div class="wq-section__header wq-reveal">
-          <div class="wq-eyebrow wq-eyebrow--row">
-            <span>08</span><span class="wq-eyebrow__rule"></span><span>QUESTIONS, ANSWERED</span>
-          </div>
-        </div>
-        <div class="wq-grid-asym-a">
-          <h2 class="wq-h2">Before you ask &mdash;</h2>
-          <ul class="wq-faq" id="wq-faq">
-            <li class="wq-faq__row is-open" data-faq-row>
-              <button class="wq-faq__q" aria-expanded="true">
-                <span><span class="wq-faq__num">01</span>I'm not technical. Can you still work with me?</span>
-                <span class="wq-faq__plus" aria-hidden="true">&minus;</span>
-              </button>
-              <p class="wq-faq__a">Yes. Most of our clients are operators or first-time founders without an in-house engineering team. We translate the business problem into a technical plan &mdash; and we handle every decision a CTO would normally make. You stay focused on your customers.</p>
-            </li>
-            <li class="wq-faq__row" data-faq-row>
-              <button class="wq-faq__q" aria-expanded="false">
-                <span><span class="wq-faq__num">02</span>How long does a project take?</span>
-                <span class="wq-faq__plus" aria-hidden="true">+</span>
-              </button>
-              <p class="wq-faq__a">Most projects ship in 4 to 16 weeks. An automation rollout for an existing team can be done in a month. A full web + mobile product for a new business is usually a 10-to-16-week build. We scope it in writing before you sign anything.</p>
-            </li>
-            <li class="wq-faq__row" data-faq-row>
-              <button class="wq-faq__q" aria-expanded="false">
-                <span><span class="wq-faq__num">03</span>Who actually writes the code? Can I meet them?</span>
-                <span class="wq-faq__plus" aria-hidden="true">+</span>
-              </button>
-              <p class="wq-faq__a">A senior engineer &mdash; at least 6 years shipping production software, no juniors, no offshore handoff &mdash; owns your project end-to-end. You'll know their name and meet them on the first call. They write the architecture, review every AI-drafted PR, and sign off before code ships. Ask for their GitHub or LinkedIn during your first 30-minute call and we'll hand them over.</p>
-            </li>
-            <li class="wq-faq__row" data-faq-row>
-              <button class="wq-faq__q" aria-expanded="false">
-                <span><span class="wq-faq__num">04</span>What stack do you work in?</span>
-                <span class="wq-faq__plus" aria-hidden="true">+</span>
-              </button>
-              <p class="wq-faq__a">Web: React, Next.js, Node, TypeScript. Mobile: native iOS/Android, React Native, Flutter. Cloud: AWS, Azure, GCP. Databases: Postgres, MySQL, MongoDB. We match the stack to the problem, not the other way around.</p>
-            </li>
-            <li class="wq-faq__row" data-faq-row>
-              <button class="wq-faq__q" aria-expanded="false">
-                <span><span class="wq-faq__num">05</span>Will AI write bad code?</span>
-                <span class="wq-faq__plus" aria-hidden="true">+</span>
-              </button>
-              <p class="wq-faq__a">No. AI writes the scaffolding and boilerplate &mdash; never the architecture, never without a senior engineer reviewing every line. Our CI enforces a minimum test coverage floor and runs static analysis on every PR. You get human-quality code, shipped at AI speed. We'll show you the review process on the first call.</p>
-            </li>
-            <li class="wq-faq__row" data-faq-row>
-              <button class="wq-faq__q" aria-expanded="false">
-                <span><span class="wq-faq__num">06</span>Do you take equity or work for free?</span>
-                <span class="wq-faq__plus" aria-hidden="true">+</span>
-              </button>
-              <p class="wq-faq__a">No. We quote fixed scope and fixed fee. If you're pre-revenue, we'll help you scope the MVP down to what your budget can actually cover &mdash; rather than quote you a number that burns the round.</p>
-            </li>
-            <li class="wq-faq__row" data-faq-row>
-              <button class="wq-faq__q" aria-expanded="false">
-                <span><span class="wq-faq__num">07</span>What happens after we launch?</span>
-                <span class="wq-faq__plus" aria-hidden="true">+</span>
-              </button>
-              <p class="wq-faq__a">We offer month-to-month maintenance if you want it &mdash; bugs, updates, iteration on feedback. Or we hand over clean, documented code and you take it in-house. Your call, not a contract you're stuck with.</p>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
     <section class="wq-section wq-section--commitments" id="commitments" data-screen-label="Commitments">
       <div class="wq-container">
         <div class="wq-section__header wq-reveal">
           <div class="wq-eyebrow wq-eyebrow--row">
-            <span>09</span><span class="wq-eyebrow__rule"></span><span>OUR COMMITMENTS</span>
+            <span>07</span><span class="wq-eyebrow__rule"></span><span>OUR COMMITMENTS</span>
           </div>
           <h2 class="wq-h2" style="max-width: 22ch; margin-top: 32px;">
             Six promises. Every engagement. No exceptions.
@@ -912,7 +836,7 @@
       <div class="wq-container">
         <div class="wq-section__header wq-reveal">
           <div class="wq-eyebrow wq-eyebrow--row">
-            <span>10</span><span class="wq-eyebrow__rule"></span><span>INSTANT AI ESTIMATE</span>
+            <span>08</span><span class="wq-eyebrow__rule"></span><span>INSTANT AI ESTIMATE</span>
           </div>
           <h2 class="wq-h2" style="max-width: 22ch; margin-top: 32px;">
             How long? How much? Ask.
@@ -1161,6 +1085,74 @@
         </div>
       </div>
     </section>
+
+    <section class="wq-section" id="faq" data-screen-label="FAQ">
+      <div class="wq-container">
+        <div class="wq-section__header wq-reveal">
+          <div class="wq-eyebrow wq-eyebrow--row">
+            <span>09</span><span class="wq-eyebrow__rule"></span><span>QUESTIONS, ANSWERED</span>
+          </div>
+        </div>
+        <div class="wq-grid-asym-a">
+          <h2 class="wq-h2">Before you ask &mdash;</h2>
+          <ul class="wq-faq" id="wq-faq">
+            <li class="wq-faq__row is-open" data-faq-row>
+              <button class="wq-faq__q" aria-expanded="true">
+                <span><span class="wq-faq__num">01</span>I'm not technical. Can you still work with me?</span>
+                <span class="wq-faq__plus" aria-hidden="true">&minus;</span>
+              </button>
+              <p class="wq-faq__a">Yes. Most of our clients are operators or first-time founders without an in-house engineering team. We translate the business problem into a technical plan &mdash; and we handle every decision a CTO would normally make. You stay focused on your customers.</p>
+            </li>
+            <li class="wq-faq__row" data-faq-row>
+              <button class="wq-faq__q" aria-expanded="false">
+                <span><span class="wq-faq__num">02</span>How long does a project take?</span>
+                <span class="wq-faq__plus" aria-hidden="true">+</span>
+              </button>
+              <p class="wq-faq__a">Most projects ship in 4 to 16 weeks. An automation rollout for an existing team can be done in a month. A full web + mobile product for a new business is usually a 10-to-16-week build. We scope it in writing before you sign anything.</p>
+            </li>
+            <li class="wq-faq__row" data-faq-row>
+              <button class="wq-faq__q" aria-expanded="false">
+                <span><span class="wq-faq__num">03</span>Who actually writes the code? Can I meet them?</span>
+                <span class="wq-faq__plus" aria-hidden="true">+</span>
+              </button>
+              <p class="wq-faq__a">A senior engineer &mdash; at least 6 years shipping production software, no juniors, no offshore handoff &mdash; owns your project end-to-end. You'll know their name and meet them on the first call. They write the architecture, review every AI-drafted PR, and sign off before code ships. Ask for their GitHub or LinkedIn during your first 30-minute call and we'll hand them over.</p>
+            </li>
+            <li class="wq-faq__row" data-faq-row>
+              <button class="wq-faq__q" aria-expanded="false">
+                <span><span class="wq-faq__num">04</span>What stack do you work in?</span>
+                <span class="wq-faq__plus" aria-hidden="true">+</span>
+              </button>
+              <p class="wq-faq__a">Web: React, Next.js, Node, TypeScript. Mobile: native iOS/Android, React Native, Flutter. Cloud: AWS, Azure, GCP. Databases: Postgres, MySQL, MongoDB. We match the stack to the problem, not the other way around.</p>
+            </li>
+            <li class="wq-faq__row" data-faq-row>
+              <button class="wq-faq__q" aria-expanded="false">
+                <span><span class="wq-faq__num">05</span>Will AI write bad code?</span>
+                <span class="wq-faq__plus" aria-hidden="true">+</span>
+              </button>
+              <p class="wq-faq__a">No. AI writes the scaffolding and boilerplate &mdash; never the architecture, never without a senior engineer reviewing every line. Our CI enforces a minimum test coverage floor and runs static analysis on every PR. You get human-quality code, shipped at AI speed. We'll show you the review process on the first call.</p>
+            </li>
+            <li class="wq-faq__row" data-faq-row>
+              <button class="wq-faq__q" aria-expanded="false">
+                <span><span class="wq-faq__num">06</span>Do you take equity or work for free?</span>
+                <span class="wq-faq__plus" aria-hidden="true">+</span>
+              </button>
+              <p class="wq-faq__a">No. We quote fixed scope and fixed fee. If you're pre-revenue, we'll help you scope the MVP down to what your budget can actually cover &mdash; rather than quote you a number that burns the round.</p>
+            </li>
+            <li class="wq-faq__row" data-faq-row>
+              <button class="wq-faq__q" aria-expanded="false">
+                <span><span class="wq-faq__num">07</span>What happens after we launch?</span>
+                <span class="wq-faq__plus" aria-hidden="true">+</span>
+              </button>
+              <p class="wq-faq__a">We offer month-to-month maintenance if you want it &mdash; bugs, updates, iteration on feedback. Or we hand over clean, documented code and you take it in-house. Your call, not a contract you're stuck with.</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="wq-section-cta">
+          <a href="#contact" class="wq-section-cta__link">Still curious? Get an instant estimate <span>&rarr;</span></a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="wq-footer" data-screen-label="Footer">
@@ -1224,7 +1216,7 @@
     </div>
   </div>
 
-  <script src="js/main.js?v=24" defer></script>
-  <script src="js/estimator.js?v=24" defer></script>
+  <script src="js/main.js?v=25" defer></script>
+  <script src="js/estimator.js?v=25" defer></script>
 </body>
 </html>
