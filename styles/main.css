@@ -2,6 +2,10 @@
  * Extends colors_and_type.css. All spacing / tokens from the spec.
  */
 
+/* ---------- Global safety: no horizontal overflow ---------- */
+html, body { overflow-x: hidden; }
+img, svg, video, iframe { max-width: 100%; height: auto; }
+
 /* ---------- Cookie / privacy consent banner ---------- */
 .wq-consent {
   position: fixed;
@@ -340,23 +344,139 @@
 .wq-hero__inner { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 28px; }
 .wq-hero__headline {
   font-family: var(--font-display);
-  font-size: clamp(3.25rem, 9vw, 7rem);
+  font-size: clamp(2.25rem, 9vw, 7rem);
   font-weight: 900;
-  letter-spacing: -0.035em;
-  line-height: 0.95;
+  letter-spacing: -0.03em;
+  line-height: 1;
   margin: 0;
   color: var(--text-primary);
   max-width: 18ch;
+  word-break: normal;
+  overflow-wrap: break-word;
   text-wrap: balance;
 }
 .wq-hero__sub {
-  font-size: 22px;
+  font-size: clamp(16px, 4.5vw, 22px);
   line-height: 1.5;
   letter-spacing: -0.01em;
   color: var(--text-secondary);
   max-width: 52ch;
 }
-.wq-hero__cta { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px; }
+.wq-hero__cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+/* ============================================================
+   MOBILE (≤600px) — comprehensive overrides so every section fits
+   ============================================================ */
+@media (max-width: 600px) {
+  /* Container + section padding */
+  .wq-container { padding: 0 20px !important; }
+  .wq-section { padding: 72px 0; }
+  .wq-section__header { margin-bottom: 40px; }
+
+  /* Hero */
+  .wq-hero { min-height: auto; padding: 28px 0 56px; }
+  .wq-hero__inner { gap: 18px; }
+  .wq-hero__headline {
+    font-size: 28px !important;
+    max-width: 100% !important;
+    letter-spacing: -0.02em !important;
+    line-height: 1.1 !important;
+  }
+  .wq-hero__sub {
+    font-size: 15px;
+    max-width: 100%;
+    width: 100%;
+    line-height: 1.55;
+    overflow-wrap: break-word;
+  }
+  .wq-hero__cta { flex-direction: column; align-items: stretch; gap: 10px; }
+  .wq-hero__cta .wq-btn { justify-content: center; width: 100%; }
+  .wq-hero__mesh { top: -10%; right: -40%; width: 130vw; }
+
+  /* Section H2s */
+  .wq-h2 {
+    font-size: clamp(1.75rem, 6.5vw, 2.25rem);
+    max-width: 100% !important;
+    line-height: 1.1;
+  }
+
+  /* Process flow */
+  .wq-flow { grid-template-columns: 1fr; }
+  .wq-flow__node { border-right: none !important; padding: 28px 0; }
+  .wq-flow__node + .wq-flow__node { border-top: 1px solid var(--border); }
+
+  /* Services */
+  .wq-services__title { font-size: 1.5rem; }
+  .wq-services__meta { font-size: 10px; }
+  .wq-industries { margin-top: 40px; padding-top: 28px; }
+  .wq-industries__row { gap: 10px 20px; font-size: 15px; }
+
+  /* Case studies */
+  .wq-case__title { font-size: 1.5rem !important; }
+  .wq-case__quote { font-size: 13px; padding: 10px 14px; }
+
+  /* Reviews */
+  .wq-review-platforms { grid-template-columns: 1fr; }
+  .wq-review-platform { padding: 24px 20px; }
+  .wq-review-platform__score { font-size: 2rem; }
+  .wq-testimonials { grid-template-columns: 1fr; }
+
+  /* Commitments */
+  .wq-commitments { grid-template-columns: 1fr; }
+  .wq-commitment { padding: 24px 20px; gap: 16px; }
+  .wq-wont-do { padding: 24px 20px; margin-top: 40px; }
+  .wq-wont-do__list { grid-template-columns: 1fr; gap: 12px; }
+
+  /* AI stack */
+  .wq-aistack { grid-template-columns: 1fr; }
+  .wq-aistack__col { padding: 24px 20px; border-right: none !important; border-bottom: 1px solid var(--border); }
+  .wq-aistack__col:last-child { border-bottom: none; }
+
+  /* Estimator form */
+  .wq-est-nav { padding: 20px 20px 0; }
+  .wq-est-step { padding: 20px 20px 24px; gap: 16px; }
+  .wq-est-row { grid-template-columns: 1fr !important; gap: 14px; }
+  .wq-est-textarea { min-height: 110px; font-size: 16px; /* prevent iOS zoom */ }
+  .wq-est-input, .wq-est-select { font-size: 16px; /* prevent iOS zoom */ }
+  .wq-est-types { grid-template-columns: 1fr !important; }
+  .wq-est-type { padding: 16px 18px; }
+  .wq-est-step__cta { flex-direction: column; align-items: stretch; gap: 10px; }
+  .wq-est-step__cta .wq-btn { width: 100%; justify-content: center; }
+  .wq-est-backlink { align-self: flex-start; }
+
+  /* FAQ */
+  .wq-faq__q { font-size: 15px; padding: 20px 0; }
+  .wq-faq__a { font-size: 14px; }
+
+  /* Pull quote */
+  .wq-quote__text { font-size: 1.5rem; }
+
+  /* Section CTA */
+  .wq-section-cta { margin-top: 32px; padding-top: 20px; justify-content: flex-start; }
+  .wq-section-cta__link { font-size: 15px; }
+
+  /* Footer */
+  .wq-footer__grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .wq-footer__brand { grid-column: 1 / -1; }
+  .wq-footer__legal { flex-direction: column; align-items: flex-start; gap: 8px; padding-top: 24px; }
+
+  /* Nav */
+  .wq-nav__inner { padding: 0 20px !important; gap: 12px; }
+  .wq-logo { font-size: 16px; }
+  .wq-logo img { height: 22px; }
+
+  /* Ticker — slow down animation on mobile */
+  .wq-ticker__track { animation-duration: 35s; }
+  .wq-ticker__item { font-size: 11px; }
+
+  /* Cookie consent */
+  .wq-consent__inner { flex-direction: column; align-items: stretch; gap: 14px; }
+  .wq-consent__actions { width: 100%; justify-content: flex-end; }
+
+  /* Proof bar */
+  .wq-metric__value { font-size: clamp(2.5rem, 10vw, 4rem); }
+  .wq-metric__label { font-size: 11px; }
+}
+/* End mobile block */
 .wq-hero__mesh {
   position: absolute;
   top: -20%; right: -20%;
@@ -410,7 +530,8 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 48px;
 }
-@media (max-width: 900px) { .wq-proof__inner { grid-template-columns: repeat(2, 1fr); row-gap: 56px; } }
+@media (max-width: 900px) { .wq-proof__inner { grid-template-columns: repeat(2, 1fr); row-gap: 56px; gap: 32px; } }
+@media (max-width: 560px) { .wq-proof__inner { grid-template-columns: 1fr; row-gap: 36px; } .wq-proof { padding: 72px 0; } }
 
 .wq-metric { display: flex; flex-direction: column; gap: 10px; }
 .wq-metric--link { text-decoration: none; color: inherit; transition: opacity var(--dur-fast) var(--ease-out); }
