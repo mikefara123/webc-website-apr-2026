@@ -11,7 +11,29 @@ const VALID_TYPES     = new Set(["web", "mobile", "automation", "mvp"]);
 const VALID_SOURCES   = new Set(["referral","clutch","google","linkedin","twitter","newsletter","event","podcast","social","other"]);
 const VALID_URGENCIES = new Set(["asap","30_days","quarter","6_months","exploring"]);
 
-// Basic IP rate limit (in-memory, resets per cold start). Use Upstash/Vercel KV for durable.
+// Tighter email regex — rejects quotes, angle brackets, whitespace, slashes that could enable HTML-attribute injection
+// even after escapeHtml (belt + suspenders).
+const EMAIL_REGEX = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
+
+// Max request body size (bytes). A valid submission is <5KB; anything bigger is abusive.
+const MAX_BODY_BYTES = 8 * 1024;
+
+// Allowed browser origins for cross-origin requests. Same-origin (no Origin header) is always accepted.
+// Production domains + Vercel preview URLs for this project.
+const ALLOWED_ORIGINS = [
+  "https://webcentriq.com",
+  "https://www.webcentriq.com",
+];
+const ALLOWED_ORIGIN_PATTERNS = [
+  /^https:\/\/webc-website-apr-2026(-[a-z0-9-]+)?\.vercel\.app$/,
+];
+function isOriginAllowed(origin) {
+  if (!origin) return true; // same-origin (browsers don't send Origin for same-origin fetches)
+  if (ALLOWED_ORIGINS.includes(origin)) return true;
+  return ALLOWED_ORIGIN_PATTERNS.some((re) => re.test(origin));
+}
+
+// Basic IP rate limit (in-memory, resets per cold start). TODO: migrate to Upstash Redis for durable.
 const rateMap = new Map();
 function rateLimited(ip) {
   if (!ip) return false;
@@ -24,14 +46,31 @@ function rateLimited(ip) {
 }
 
 export default async function handler(req, res) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  const origin = req.headers.origin || "";
+
+  // CORS: echo only allowed origins; never use wildcard.
+  if (origin && isOriginAllowed(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+    res.setHeader("Vary", "Origin");
+  }
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  if (req.method === "OPTIONS") return res.status(200).end();
+  res.setHeader("Access-Control-Max-Age", "600");
+  if (req.method === "OPTIONS") return res.status(204).end();
   if (req.method !== "POST") return res.status(405).json({ error: "method_not_allowed" });
+
+  // Origin enforcement (browser-side CORS only blocks the response, not the request). We must
+  // refuse disallowed cross-origin calls server-side to prevent cost-exhaustion from rogue sites.
+  if (origin && !isOriginAllowed(origin)) {
+    return res.status(403).json({ error: "origin_not_allowed" });
+  }
 
   const ip = req.headers["x-forwarded-for"]?.split(",")[0]?.trim() || req.socket?.remoteAddress || "unknown";
   if (rateLimited(ip)) return res.status(429).json({ error: "rate_limited" });
+
+  // Body-size guard
+  const contentLength = parseInt(req.headers["content-length"] || "0", 10);
+  if (contentLength > MAX_BODY_BYTES) return res.status(413).json({ error: "payload_too_large" });
 
   let body = req.body;
   if (typeof body === "string") { try { body = JSON.parse(body); } catch (_) { body = {}; } }
@@ -59,7 +98,7 @@ export default async function handler(req, res) {
   const city    = typeof body.city === "string" ? body.city.trim() : "";
   const source  = typeof body.source === "string" ? body.source : "";
   const urgency = typeof body.urgency === "string" ? body.urgency : "";
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return res.status(400).json({ error: "invalid_email" });
+  if (!EMAIL_REGEX.test(email) || email.length > 254) return res.status(400).json({ error: "invalid_email" });
   if (!country || country.length > 40)           return res.status(400).json({ error: "invalid_country" });
   if (!city || city.length < 2 || city.length > 80) return res.status(400).json({ error: "invalid_city" });
   if (!VALID_SOURCES.has(source))     return res.status(400).json({ error: "invalid_source" });

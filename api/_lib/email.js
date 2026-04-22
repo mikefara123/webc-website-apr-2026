@@ -41,7 +41,7 @@ const logoBlock = `<div class="logo">Web<span>C</span>entriq</div>`;
 // ============== 1) Full estimate email to user ==============
 export async function sendEstimateEmail({ to, estimate, projectData, contactData }) {
   if (!resend) {
-    console.log("[email:estimate] (no Resend key — would send) to:", to);
+    console.log("[email:estimate] (no Resend key — would send) to:", redactEmail(to));
     return { ok: true, mock: true };
   }
   const html = buildEstimateHtml({ estimate, projectData, contactData });
@@ -50,7 +50,7 @@ export async function sendEstimateEmail({ to, estimate, projectData, contactData
   const { data, error } = await resend.emails.send({
     from: FROM_ADDRESS,
     to: [to],
-    reply_to: SALES_ADDRESS,
+    replyTo: SALES_ADDRESS,
     subject,
     html
   });
@@ -61,7 +61,7 @@ export async function sendEstimateEmail({ to, estimate, projectData, contactData
 // ============== 2) Internal lead notification to sales ==============
 export async function sendSalesNotification({ estimate, projectData, contactData }) {
   if (!resend) {
-    console.log("[email:sales-notify] (no Resend key — would send)", { contactData, estimate });
+    console.log("[email:sales-notify] (no Resend key — would send) for:", redactEmail(contactData.email));
     return { ok: true, mock: true };
   }
   const subject = `[Lead] ${contactData.email} · ${contactData.country}/${contactData.city} · ${estimate.timelineWeeksMin}-${estimate.timelineWeeksMax}wk, $${Math.round(estimate.costUsdMin/1000)}-$${Math.round(estimate.costUsdMax/1000)}K`;
@@ -71,11 +71,11 @@ export async function sendSalesNotification({ estimate, projectData, contactData
     <body><div class="wrap">
       ${logoBlock}
       <h1>New qualified lead.</h1>
-      <p style="color:#FAFAFA;">Verified via OTP. AI estimate generated and emailed to the lead. Reply directly to engage.</p>
+      <p style="color:#FAFAFA;">AI estimate generated and emailed to the lead. Reply directly to this message to engage &mdash; reply-to is set to the lead's address.</p>
 
       <h2>Contact</h2>
       <table style="width:100%;border-collapse:collapse;">
-        <tr><td style="padding:8px 0;color:#8A8A8A;width:180px;">Email</td><td style="color:#FAFAFA;"><a href="mailto:${contactData.email}" style="color:#FF4D00;">${contactData.email}</a></td></tr>
+        <tr><td style="padding:8px 0;color:#8A8A8A;width:180px;">Email</td><td style="color:#FAFAFA;"><a href="mailto:${encodeURIComponent(contactData.email)}" style="color:#FF4D00;">${escapeHtml(contactData.email)}</a></td></tr>
         <tr><td style="padding:8px 0;color:#8A8A8A;">Location</td><td style="color:#FAFAFA;">${escapeHtml(contactData.city)}, ${escapeHtml(contactData.country)}</td></tr>
         <tr><td style="padding:8px 0;color:#8A8A8A;">Heard via</td><td style="color:#FAFAFA;">${escapeHtml(contactData.source)}</td></tr>
         <tr><td style="padding:8px 0;color:#8A8A8A;">Urgency</td><td style="color:#FAFAFA;"><strong>${escapeHtml(contactData.urgency)}</strong></td></tr>
@@ -104,14 +104,14 @@ export async function sendSalesNotification({ estimate, projectData, contactData
       <ul>${(estimate.risks || []).map((r) => `<li>${escapeHtml(r)}</li>`).join("")}</ul>
 
       <div class="footer">
-        Sent by the WebCentriq estimator. Reply-to on the user email is set to ${SALES_ADDRESS}.
+        Sent by the WebCentriq estimator. Reply-to on the user email is set to ${escapeHtml(SALES_ADDRESS)}.
       </div>
     </div></body></html>`;
 
   const { data, error } = await resend.emails.send({
     from: FROM_ADDRESS,
     to: [SALES_ADDRESS],
-    reply_to: contactData.email,
+    replyTo: contactData.email,
     subject,
     html
   });
@@ -171,4 +171,13 @@ function buildEstimateHtml({ estimate, projectData, contactData }) {
 
 function escapeHtml(s) {
   return String(s || "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+// Redact an email for logs: foo@example.com → f**@example.com
+function redactEmail(e) {
+  if (!e || typeof e !== "string") return "[none]";
+  const [local, domain] = e.split("@");
+  if (!domain) return "[malformed]";
+  const prefix = local.charAt(0) || "";
+  return `${prefix}${"*".repeat(Math.max(1, local.length - 1))}@${domain}`;
 }
