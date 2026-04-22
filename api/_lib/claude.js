@@ -26,6 +26,10 @@ Your job: given a project description plus context (project type, optional budge
 
 Be conservative but specific. Use WebCentriq's voice: declarative, peer-to-peer, no jargon, no emoji, no exclamation points. If the budget signal caps what's feasible, right-size the scope to the cap rather than quoting past it. If the urgency signal is "ASAP" or "30 days", compress timeline where possible and flag the trade-off.
 
+Always include:
+- 3 to 5 "understandingBullets" — each one is a concise restatement of what you heard from the description, so the reader sees we actually understood them. Don't parrot the description back; synthesize. Example: "You have a 30-person team typing patient data into three different systems — the bottleneck is at the front desk."
+- 3 to 4 "clarifyingQuestions" — the specific questions a senior engineer would ask to tighten the scope. These start a real conversation, not filler. Example: "Do you already have an EHR vendor we'd integrate with, or is that part of the scope?"
+
 Respond with ONLY valid JSON (no markdown, no prose) matching:
 
 {
@@ -34,6 +38,8 @@ Respond with ONLY valid JSON (no markdown, no prose) matching:
   "costUsdMin": number (15000-200000, rounded to nearest 1000),
   "costUsdMax": number (greater than min, rounded to nearest 1000),
   "oneLineSummary": "string — one sentence",
+  "understandingBullets": ["string", "..."] (3-5 items, <22 words each, synthesized not parroted),
+  "clarifyingQuestions": ["string", "..."] (3-4 items, <22 words each, specific and scope-tightening),
   "phases": [ { "name": "string", "weeks": number, "description": "string <30 words" } ],
   "includes": ["string", "..."] (5-7 items, <12 words each),
   "risks": ["string", "..."] (1-4 items, <25 words each — real risks only),
@@ -75,6 +81,23 @@ export async function runEstimate({ projectData, contactData }) {
   estimate.timelineWeeksMax = clamp(estimate.timelineWeeksMax, estimate.timelineWeeksMin + 1, 22);
   estimate.costUsdMin = roundK(clamp(estimate.costUsdMin, 15000, 200000));
   estimate.costUsdMax = roundK(clamp(estimate.costUsdMax, estimate.costUsdMin + 2000, 250000));
+
+  // Defensive defaults for the new conversational fields
+  if (!Array.isArray(estimate.understandingBullets) || estimate.understandingBullets.length === 0) {
+    estimate.understandingBullets = [
+      "You've shared the problem at a high level. A senior engineer will follow up to confirm the details.",
+    ];
+  }
+  if (!Array.isArray(estimate.clarifyingQuestions) || estimate.clarifyingQuestions.length === 0) {
+    estimate.clarifyingQuestions = [
+      "Do you have an existing tech stack or vendors we need to integrate with?",
+      "Who are the primary users of the system, and how many of them?",
+      "What is the hard deadline, and what drives it (investor, client, regulatory)?",
+    ];
+  }
+  // Cap array lengths to prevent oversized emails
+  estimate.understandingBullets = estimate.understandingBullets.slice(0, 5);
+  estimate.clarifyingQuestions = estimate.clarifyingQuestions.slice(0, 4);
   return estimate;
 }
 

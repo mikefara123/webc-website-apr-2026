@@ -424,11 +424,11 @@
 .wq-metric__value--accent { color: var(--accent); }
 .wq-metric__label {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  font-weight: 500;
-  color: #5A5A5A;
+  font-weight: 600;
+  color: #3A3A3A;
 }
 
 /* ---------- Thesis body ---------- */

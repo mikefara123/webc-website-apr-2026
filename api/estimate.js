@@ -6,6 +6,7 @@
 
 import { runEstimate } from "./_lib/claude.js";
 import { sendEstimateEmail, sendSalesNotification } from "./_lib/email.js";
+import { generateEstimatePdf, makeRefId } from "./_lib/pdf.js";
 
 const VALID_TYPES     = new Set(["web", "mobile", "automation", "mvp"]);
 const VALID_SOURCES   = new Set(["referral","clutch","google","linkedin","twitter","newsletter","event","podcast","social","other"]);
@@ -121,11 +122,22 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: "estimation_failed" });
   }
 
+  const refId = makeRefId();
+
+  // Generate PDF (shared between both recipients). If generation fails, still send emails
+  // without attachment — the email body has the same content.
+  let pdfBuffer = null;
+  try {
+    pdfBuffer = await generateEstimatePdf({ estimate, projectData, contactData, refId });
+  } catch (err) {
+    console.error("[estimate] pdf generation failed:", err?.message || err);
+  }
+
   // Fan-out email — user + sales
   try {
     await Promise.all([
-      sendEstimateEmail({ to: email, estimate, projectData, contactData }),
-      sendSalesNotification({ estimate, projectData, contactData })
+      sendEstimateEmail({ to: email, estimate, projectData, contactData, pdfBuffer, refId }),
+      sendSalesNotification({ estimate, projectData, contactData, pdfBuffer, refId })
     ]);
   } catch (err) {
     // Email failures should not block the UX — the user already clicked submit.

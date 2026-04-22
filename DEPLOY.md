@@ -27,6 +27,7 @@ See `.env.example` for the full list. Set these in the Vercel dashboard (Setting
 | `RESEND_API_KEY`    | https://resend.com/api-keys |
 | `ESTIMATOR_FROM`    | `WebCentriq <hello@webcentriq.com>` (or your verified subdomain) |
 | `ESTIMATOR_SALES_TO` | `hello@webcentriq.com` (where lead notifications land) |
+| `SCHEDULE_URL`      | `https://calendly.com/hello-webcentriq/30min` (Schedule-a-call CTA in email + PDF) |
 
 ### 4. Verify the sending domain in Resend
 1. Resend dashboard → **Domains** → Add `webcentriq.com` (or `mail.webcentriq.com` subdomain)
