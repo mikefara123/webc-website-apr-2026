@@ -48,8 +48,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500&display=swap"/>
 
-<link rel="stylesheet" href="styles/tokens.css?v=23"/>
-<link rel="stylesheet" href="styles/main.css?v=23"/>
+<link rel="stylesheet" href="styles/tokens.css?v=24"/>
+<link rel="stylesheet" href="styles/main.css?v=24"/>
 
 <!-- Structured data: Organization + ProfessionalService + WebSite + FAQPage -->
 <script type="application/ld+json">
@@ -264,26 +264,12 @@
       </div>
     </section>
 
-    <section class="wq-trusted" data-screen-label="TrustedBy">
-      <div class="wq-container">
-        <div class="wq-trusted__label wq-mono-xs">TRUSTED BY PEOPLE FROM</div>
-        <!-- TODO: drop real SVG brand kits into /assets/logos/ and replace these text wordmarks with <img src="assets/logos/*.svg"/>. Using actual corporate logos without permission is a trademark risk; text names = nominative fair use. -->
-        <ul class="wq-trusted__row" aria-label="Client and team affiliations">
-          <li class="wq-wordmark">Stanford</li>
-          <li class="wq-wordmark">Microsoft</li>
-          <li class="wq-wordmark">NVIDIA</li>
-          <li class="wq-wordmark">IBM</li>
-          <li class="wq-wordmark">Apple</li>
-        </ul>
-      </div>
-    </section>
-
     <section class="wq-proof" data-screen-label="ProofBar">
       <div class="wq-container wq-proof__inner">
-        <div class="wq-metric">
+        <a class="wq-metric wq-metric--link" href="https://clutch.co/profile/webcentriq" target="_blank" rel="noopener" aria-label="Read all 18 verified reviews on Clutch">
           <div class="wq-metric__value wq-metric__value--accent" data-count-to="4.9" data-suffix="">4.9</div>
-          <div class="wq-metric__label">CLUTCH &middot; 18 REVIEWS</div>
-        </div>
+          <div class="wq-metric__label">CLUTCH &middot; 18 VERIFIED REVIEWS &rarr;</div>
+        </a>
         <div class="wq-metric">
           <div class="wq-metric__value" data-count-to="80" data-suffix="+">80+</div>
           <div class="wq-metric__label">ENGINEERS &amp; DESIGNERS</div>
@@ -432,6 +418,11 @@
             <div class="wq-services__num">01</div>
             <div class="wq-services__content">
               <h3 class="wq-services__title">Business process automation</h3>
+              <div class="wq-services__meta">
+                <span class="wq-services__price">$15K&ndash;$40K</span>
+                <span class="wq-services__sep">&middot;</span>
+                <span class="wq-services__timeline">4&ndash;8 weeks</span>
+              </div>
             </div>
             <p class="wq-services__desc">We audit the workflow, build the tooling, and integrate the systems you already pay for. Your team gets its week back &mdash; and you stop hiring headcount to plug gaps that software should fill.</p>
           </li>
@@ -439,6 +430,11 @@
             <div class="wq-services__num">02</div>
             <div class="wq-services__content">
               <h3 class="wq-services__title">Custom web applications</h3>
+              <div class="wq-services__meta">
+                <span class="wq-services__price">$35K&ndash;$120K</span>
+                <span class="wq-services__sep">&middot;</span>
+                <span class="wq-services__timeline">8&ndash;16 weeks</span>
+              </div>
             </div>
             <p class="wq-services__desc">Client portals, internal tools, SaaS platforms, admin dashboards. Built to match how your business actually runs &mdash; not how a template vendor thinks it should.</p>
           </li>
@@ -446,6 +442,11 @@
             <div class="wq-services__num">03</div>
             <div class="wq-services__content">
               <h3 class="wq-services__title">Mobile apps &mdash; iOS &amp; Android</h3>
+              <div class="wq-services__meta">
+                <span class="wq-services__price">$45K&ndash;$150K</span>
+                <span class="wq-services__sep">&middot;</span>
+                <span class="wq-services__timeline">10&ndash;18 weeks</span>
+              </div>
             </div>
             <p class="wq-services__desc">Native where it matters, cross-platform where it doesn't. Shipped to the App Store and Play Store &mdash; not abandoned in a GitHub repo. Push notifications, offline sync, payments, the whole thing.</p>
           </li>
@@ -453,6 +454,11 @@
             <div class="wq-services__num">04</div>
             <div class="wq-services__content">
               <h3 class="wq-services__title">MVPs for new products</h3>
+              <div class="wq-services__meta">
+                <span class="wq-services__price">$25K&ndash;$75K</span>
+                <span class="wq-services__sep">&middot;</span>
+                <span class="wq-services__timeline">6&ndash;12 weeks</span>
+              </div>
             </div>
             <p class="wq-services__desc">You brief us on the idea. We design it, build it, and put it in your hands. Investor-ready, not prototype-ready. First paying users can start the week you launch.</p>
           </li>
@@ -517,6 +523,10 @@
               <span class="wq-case__underline"></span>
             </h3>
             <p class="wq-case__blurb">Web platform and mobile app for a consumer marketplace. Full product build &mdash; onboarding, inventory, payments, push &mdash; delivered end to end.</p>
+            <blockquote class="wq-case__quote">
+              &ldquo;Their ability to deeply understand the technical and business sides of our platform stood out.&rdquo;
+              <cite>&mdash; Aaron McEvoy, Founder, Dwelzi LLC</cite>
+            </blockquote>
             <div class="wq-case__metrics">
               <div class="wq-case__metric"><div class="wq-case__metric-value">Web + iOS + Android</div><div class="wq-case__metric-label">PLATFORMS</div></div>
               <div class="wq-case__metric"><div class="wq-case__metric-value">End-to-end</div><div class="wq-case__metric-label">SCOPE</div></div>
@@ -561,6 +571,10 @@
               <span class="wq-case__underline"></span>
             </h3>
             <p class="wq-case__blurb">Scheduling, patient records, billing, and compliance reporting in one system. Replaced four separate tools and a fax machine.</p>
+            <blockquote class="wq-case__quote">
+              &ldquo;Unlike assembly-line software companies, they focus on quality, not just output.&rdquo;
+              <cite>&mdash; Pamela Bixler, Owner, Bixler Services</cite>
+            </blockquote>
             <div class="wq-case__metrics">
               <div class="wq-case__metric"><div class="wq-case__metric-value">HIPAA</div><div class="wq-case__metric-label">COMPLIANT</div></div>
               <div class="wq-case__metric"><div class="wq-case__metric-value">AWS</div><div class="wq-case__metric-label">INFRASTRUCTURE</div></div>
@@ -593,6 +607,10 @@
               <span class="wq-case__underline"></span>
             </h3>
             <p class="wq-case__blurb">Internal dashboard for a payments operator. Consolidated ledger, reconciliation, and customer support tooling the ops team used every hour.</p>
+            <blockquote class="wq-case__quote">
+              &ldquo;WebcentriQ has met every delivery date within budget.&rdquo;
+              <cite>&mdash; Jennifer Vines, Founder &amp; CEO, Eddy</cite>
+            </blockquote>
             <div class="wq-case__metrics">
               <div class="wq-case__metric"><div class="wq-case__metric-value">Ops + Finance</div><div class="wq-case__metric-label">USERS</div></div>
               <div class="wq-case__metric"><div class="wq-case__metric-value">Realtime</div><div class="wq-case__metric-label">RECONCILIATION</div></div>
@@ -630,6 +648,10 @@
               <span class="wq-case__underline"></span>
             </h3>
             <p class="wq-case__blurb">Custom analytics and campaign-workflow platform for a marketing operator. Replaced a stack of SaaS subscriptions with one internal tool.</p>
+            <blockquote class="wq-case__quote">
+              &ldquo;I'm most impressed by their ability to turn my words into an experience.&rdquo;
+              <cite>&mdash; Lawrence Cole, Founder, Revworks LLC</cite>
+            </blockquote>
             <div class="wq-case__metrics">
               <div class="wq-case__metric"><div class="wq-case__metric-value">Custom</div><div class="wq-case__metric-label">INTEGRATIONS</div></div>
               <div class="wq-case__metric"><div class="wq-case__metric-value">Multi-tenant</div><div class="wq-case__metric-label">ARCHITECTURE</div></div>
@@ -690,16 +712,14 @@
               <div class="wq-review-platform__link">Read all on Clutch <span>&rarr;</span></div>
             </div>
           </a>
-          <!-- TODO: confirm the exact Google rating + review count, then update score + width below. Canonical Google Maps entity: kgmid=/g/11twqjlc31 -->
+          <!-- TODO: confirm the exact Google rating + review count from your Google Business Profile, then replace this block with real stars/score. -->
           <a class="wq-review-platform" href="https://share.google/5YQsh9b47Pxh0Ik0K" target="_blank" rel="noopener">
             <div class="wq-review-platform__rating">
-              <span class="wq-review-platform__score">5.0</span>
-              <span class="wq-stars" aria-label="5.0 out of 5">
-                <span class="wq-stars__full" style="width: 100%"></span>
-              </span>
+              <span class="wq-review-platform__score" aria-hidden="true">&#9733;</span>
+              <span class="wq-review-platform__score-sub">Google Business</span>
             </div>
             <div class="wq-review-platform__meta">
-              <div class="wq-mono-xs">GOOGLE BUSINESS PROFILE</div>
+              <div class="wq-mono-xs">VERIFIED LISTING</div>
               <div class="wq-review-platform__link">Read reviews on Google <span>&rarr;</span></div>
             </div>
           </a>
@@ -780,28 +800,35 @@
             </li>
             <li class="wq-faq__row" data-faq-row>
               <button class="wq-faq__q" aria-expanded="false">
-                <span><span class="wq-faq__num">03</span>What stack do you work in?</span>
+                <span><span class="wq-faq__num">03</span>Who actually writes the code? Can I meet them?</span>
+                <span class="wq-faq__plus" aria-hidden="true">+</span>
+              </button>
+              <p class="wq-faq__a">A senior engineer &mdash; at least 6 years shipping production software, no juniors, no offshore handoff &mdash; owns your project end-to-end. You'll know their name and meet them on the first call. They write the architecture, review every AI-drafted PR, and sign off before code ships. Ask for their GitHub or LinkedIn during your first 30-minute call and we'll hand them over.</p>
+            </li>
+            <li class="wq-faq__row" data-faq-row>
+              <button class="wq-faq__q" aria-expanded="false">
+                <span><span class="wq-faq__num">04</span>What stack do you work in?</span>
                 <span class="wq-faq__plus" aria-hidden="true">+</span>
               </button>
               <p class="wq-faq__a">Web: React, Next.js, Node, TypeScript. Mobile: native iOS/Android, React Native, Flutter. Cloud: AWS, Azure, GCP. Databases: Postgres, MySQL, MongoDB. We match the stack to the problem, not the other way around.</p>
             </li>
             <li class="wq-faq__row" data-faq-row>
               <button class="wq-faq__q" aria-expanded="false">
-                <span><span class="wq-faq__num">04</span>Will AI write bad code?</span>
+                <span><span class="wq-faq__num">05</span>Will AI write bad code?</span>
                 <span class="wq-faq__plus" aria-hidden="true">+</span>
               </button>
               <p class="wq-faq__a">No. AI writes the scaffolding and boilerplate &mdash; never the architecture, never without a senior engineer reviewing every line. Our CI enforces a minimum test coverage floor and runs static analysis on every PR. You get human-quality code, shipped at AI speed. We'll show you the review process on the first call.</p>
             </li>
             <li class="wq-faq__row" data-faq-row>
               <button class="wq-faq__q" aria-expanded="false">
-                <span><span class="wq-faq__num">05</span>Do you take equity or work for free?</span>
+                <span><span class="wq-faq__num">06</span>Do you take equity or work for free?</span>
                 <span class="wq-faq__plus" aria-hidden="true">+</span>
               </button>
               <p class="wq-faq__a">No. We quote fixed scope and fixed fee. If you're pre-revenue, we'll help you scope the MVP down to what your budget can actually cover &mdash; rather than quote you a number that burns the round.</p>
             </li>
             <li class="wq-faq__row" data-faq-row>
               <button class="wq-faq__q" aria-expanded="false">
-                <span><span class="wq-faq__num">06</span>What happens after we launch?</span>
+                <span><span class="wq-faq__num">07</span>What happens after we launch?</span>
                 <span class="wq-faq__plus" aria-hidden="true">+</span>
               </button>
               <p class="wq-faq__a">We offer month-to-month maintenance if you want it &mdash; bugs, updates, iteration on feedback. Or we hand over clean, documented code and you take it in-house. Your call, not a contract you're stuck with.</p>
@@ -1197,7 +1224,7 @@
     </div>
   </div>
 
-  <script src="js/main.js?v=23" defer></script>
-  <script src="js/estimator.js?v=23" defer></script>
+  <script src="js/main.js?v=24" defer></script>
+  <script src="js/estimator.js?v=24" defer></script>
 </body>
 </html>
