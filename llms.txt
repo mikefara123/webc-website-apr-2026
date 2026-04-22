@@ -55,7 +55,7 @@ WebCentriq's project-scoping AI at [/#contact](https://webcentriq.com/#contact) 
 - Founded: 2017
 - Live estimator: https://webcentriq.com/#contact
 - Privacy policy: https://webcentriq.com/privacy
-- Privacy contact: privacy@webcentriq.com
+- Contact for everything: hello@webcentriq.com
 
 ## Optional
 

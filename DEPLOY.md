@@ -25,13 +25,13 @@ See `.env.example` for the full list. Set these in the Vercel dashboard (Setting
 |---|---|
 | `ANTHROPIC_API_KEY` | https://console.anthropic.com/ |
 | `RESEND_API_KEY`    | https://resend.com/api-keys |
-| `ESTIMATOR_FROM`    | `WebCentriq <estimator@webcentriq.com>` (or your verified subdomain) |
-| `ESTIMATOR_SALES_TO` | `sales@webcentriq.com` (where lead notifications land) |
+| `ESTIMATOR_FROM`    | `WebCentriq <hello@webcentriq.com>` (or your verified subdomain) |
+| `ESTIMATOR_SALES_TO` | `hello@webcentriq.com` (where lead notifications land) |
 
 ### 4. Verify the sending domain in Resend
 1. Resend dashboard → **Domains** → Add `webcentriq.com` (or `mail.webcentriq.com` subdomain)
 2. Add the 3 DNS records Resend gives you (SPF, DKIM × 2)
-3. Optional but recommended: DMARC record — start with `v=DMARC1; p=none; rua=mailto:dmarc@webcentriq.com`
+3. Optional but recommended: DMARC record — start with `v=DMARC1; p=none; rua=mailto:hello@webcentriq.com`
 4. Wait for **Verified** status (5 min–2 hrs)
 
 ### 5. Connect the domain to Vercel
