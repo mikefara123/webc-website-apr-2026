@@ -1,0 +1,139 @@
+/* WebCentriq Design System — Foundations
+ * Fonts loaded via <link rel="stylesheet"> in index.html for non-render-blocking perf.
+ */
+
+:root {
+  /* Fonts — Inter for everything except mono + one serif pull quote */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif; /* InterDisplay fallback */
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-serif: "Fraunces", "GT Sectra", Georgia, serif; /* GT Sectra fallback — Fraunces */
+
+  /* Backgrounds */
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #141414;
+  --bg-elevated: #1C1C1C;
+  --bg-inverted: #FAFAFA;
+
+  /* Text */
+  --text-primary: #FAFAFA;
+  --text-secondary: #8A8A8A;
+  --text-tertiary: #5A5A5A;
+  --text-inverted: #0A0A0A;
+
+  /* Borders */
+  --border: #262626;
+  --border-strong: #3A3A3A;
+  --border-inverted: #E5E5E5;
+
+  /* Accent — use sparingly */
+  --accent: #FF4D00;
+  --accent-hover: #FF6A2E;
+  --accent-muted: #CC3D00;
+
+  /* Semantic */
+  --success: #00C853;
+  --warning: #FFB800;
+  --error: #FF3B30;
+
+  /* Spacing (4px base) */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-20: 80px;
+  --sp-24: 96px;
+  --sp-32: 128px;
+  --sp-40: 160px;
+
+  /* Radii — sharp by default; buttons/inputs only */
+  --radius-button: 4px;
+  --radius-none: 0;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 200ms;
+  --dur-base: 400ms;
+  --dur-slow: 600ms;
+  --dur-slower: 900ms;
+}
+
+[data-theme="light"] {
+  --bg-primary: #FAFAFA;
+  --bg-secondary: #F0F0F0;
+  --bg-elevated: #FFFFFF;
+  --bg-inverted: #0A0A0A;
+  --text-primary: #0A0A0A;
+  --text-secondary: #5A5A5A;
+  --text-tertiary: #8A8A8A;
+  --text-inverted: #FAFAFA;
+  --border: #E5E5E5;
+  --border-strong: #CCCCCC;
+  --border-inverted: #262626;
+}
+
+/* ---- Base / reset ---- */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "ss01", "cv11";
+}
+
+/* ---- Type scale ---- */
+.text-mono-xs   { font-family: var(--font-mono); font-size: 11px; line-height: 1.4; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; }
+.text-mono-sm   { font-family: var(--font-mono); font-size: 12px; line-height: 1.4; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; }
+
+.text-body-sm   { font-size: 14px; line-height: 1.5; font-weight: 400; }
+.text-body      { font-size: 16px; line-height: 1.6; font-weight: 400; }
+.text-body-lg   { font-size: 18px; line-height: 1.6; font-weight: 400; }
+.text-body-xl   { font-size: 22px; line-height: 1.5; font-weight: 400; letter-spacing: -0.01em; }
+
+.text-display-sm  { font-family: var(--font-display); font-size: clamp(1.75rem, 3.5vw, 2rem);    line-height: 1.1;  font-weight: 700; letter-spacing: -0.02em; }
+.text-display-md  { font-family: var(--font-display); font-size: clamp(2.25rem, 5vw, 3rem);      line-height: 1.05; font-weight: 800; letter-spacing: -0.025em; }
+.text-display-lg  { font-family: var(--font-display); font-size: clamp(3rem, 7vw, 4.5rem);       line-height: 1.0;  font-weight: 800; letter-spacing: -0.03em; }
+.text-display-xl  { font-family: var(--font-display); font-size: clamp(3.5rem, 10vw, 7.5rem);    line-height: 0.95; font-weight: 900; letter-spacing: -0.035em; }
+.text-display-2xl { font-family: var(--font-display); font-size: clamp(4.5rem, 14vw, 11.25rem);  line-height: 0.9;  font-weight: 900; letter-spacing: -0.04em; }
+
+/* ---- Semantic defaults ---- */
+h1 { font-family: var(--font-display); font-size: clamp(3.5rem, 10vw, 7.5rem); line-height: 0.95; font-weight: 900; letter-spacing: -0.035em; margin: 0; }
+h2 { font-family: var(--font-display); font-size: clamp(2.25rem, 5vw, 3rem); line-height: 1.05; font-weight: 800; letter-spacing: -0.025em; margin: 0; }
+h3 { font-family: var(--font-display); font-size: 32px; line-height: 1.1; font-weight: 700; letter-spacing: -0.02em; margin: 0; }
+p  { font-size: 16px; line-height: 1.6; font-weight: 400; margin: 0; max-width: 68ch; }
+code, pre, kbd { font-family: var(--font-mono); }
+small { font-size: 14px; line-height: 1.5; }
+
+/* Utility: eyebrow / mono label */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+/* Focus */
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 100ms !important;
+  }
+}

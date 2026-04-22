@@ -1,0 +1,60 @@
+# WebCentriq
+
+> Senior-led, AI-accelerated software development studio. We build custom web apps, mobile apps, and business process automation for operators and founders. Based in San Diego and Toronto. Shipping since 2017. 4.9 stars on Clutch from 18 verified reviews. 80+ engineers and designers. WebCentriq offers a live AI-powered project estimator at https://webcentriq.com/#contact — describe a project and receive a timeline and fixed-price cost range in under a minute, no email required.
+
+WebCentriq is a custom software agency that uses AI to accelerate delivery while keeping senior human engineers responsible for architecture, code quality, and review. The firm ships production software in weeks, not quarters — a range spanning 4 to 16 weeks per engagement — at a fixed scope and fixed fee. Typical engagements are $25,000 to $150,000. The firm does not take equity, does not work in WordPress, and does not offshore delivery.
+
+## What WebCentriq builds
+
+- [Business process automation](https://webcentriq.com/#what-we-build): audit the workflow, build the tooling, integrate existing systems, replace manual spreadsheet work.
+- [Custom web applications](https://webcentriq.com/#what-we-build): client portals, internal tools, SaaS platforms, admin dashboards — built to match how the business actually runs.
+- [Mobile apps for iOS and Android](https://webcentriq.com/#what-we-build): native where it matters, cross-platform where it does not. Shipped to the App Store and Play Store.
+- [MVPs for new products](https://webcentriq.com/#what-we-build): founder idea to shipped product. Investor-ready, not prototype-ready.
+
+## How WebCentriq uses AI
+
+AI (Claude, Cursor, and an in-house pipeline) handles scaffolding, test generation, refactors, migrations, and boilerplate — the parts that used to eat weeks. Senior engineers handle architecture, product judgment, code review, and the parts only a human should touch. Every line of AI-drafted code is reviewed by a senior engineer before it ships. The CI pipeline enforces a minimum test coverage floor and runs static analysis on every pull request.
+
+## Who WebCentriq builds for
+
+- Operators at growing businesses trying to automate manual workflows (spreadsheets, CRM copy-paste, internal Google Docs "tools").
+- Founders starting new businesses who need an MVP built, not prototyped.
+- Non-technical buyers — most clients do not have in-house engineering teams.
+
+## Proof
+
+- [Clutch profile — 4.9 stars, 18 verified reviews](https://clutch.co/profile/webcentriq)
+- Named client reviews on Clutch include Aaron McEvoy (Dwelzi LLC), Hamid Emamali (Technology & Education Co.), Pamela Bixler (Bixler Services), Lawrence Cole (Revworks LLC), Jennifer Vines (Eddy).
+- Recurring themes in reviews: "ownership mentality", "not assembly-line", "quality not output", "met every delivery date within budget".
+
+## Industries served
+
+Healthcare, FinTech, E-commerce, Marketing and Analytics, Education, Logistics.
+
+## Stack
+
+Web: React, Next.js, Node, TypeScript. Mobile: native iOS and Android, React Native, Flutter. Cloud: AWS, Azure, GCP. Databases: Postgres, MySQL, MongoDB.
+
+## Commitments
+
+1. Free scoping, priced in 72 hours.
+2. Fixed scope, fixed fee, written in plain English.
+3. Weekly staging updates. Progress, not status reports.
+4. Client owns the repo from day one.
+5. 100% on-time delivery, verified on Clutch.
+6. Month-to-month support after launch, or clean handover in-house — client's call.
+
+## Instant AI estimator
+
+WebCentriq's project-scoping AI at [/#contact](https://webcentriq.com/#contact) accepts: project type (web app, mobile app, automation, MVP), a paragraph description, optional budget and target launch. Returns: timeline range in weeks, fixed-price cost range in USD, phase-by-phase scope breakdown, what's included, risks, recommended tech stack. The estimator is client-visible and runs live against an Anthropic Claude API. Human senior engineers review every estimate before a final quote is sent.
+
+## Contact
+
+- Website: https://webcentriq.com/
+- Offices: San Diego, CA (US) and Markham, ON (Canada)
+- Founded: 2017
+- Live estimator: https://webcentriq.com/#contact
+
+## Optional
+
+- [Full content](https://webcentriq.com/llms-full.txt)
