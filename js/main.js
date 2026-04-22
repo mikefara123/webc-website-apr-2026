@@ -111,4 +111,34 @@
   }
 
   /* CTA form handling moved to js/estimator.js — new AI-powered estimator flow */
+
+  /* ---------- Cookie / privacy consent banner ---------- */
+  const CONSENT_KEY = "wq_consent_v1";
+  const consentEl = document.getElementById("wq-consent");
+  if (consentEl) {
+    let stored = null;
+    try { stored = localStorage.getItem(CONSENT_KEY); } catch (_) { /* blocked */ }
+
+    if (!stored) {
+      // Delay so banner doesn't flash-on during initial paint
+      setTimeout(() => {
+        consentEl.hidden = false;
+        consentEl.classList.add("is-visible");
+      }, 600);
+    }
+
+    consentEl.querySelectorAll("button[data-consent]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const choice = btn.dataset.consent;
+        try {
+          localStorage.setItem(CONSENT_KEY, JSON.stringify({ choice, ts: Date.now() }));
+        } catch (_) { /* ignore */ }
+        consentEl.classList.remove("is-visible");
+        setTimeout(() => { consentEl.hidden = true; }, 240);
+
+        // If we add analytics later, gate them here:
+        //   if (choice === "accept") loadAnalytics();
+      });
+    });
+  }
 })();

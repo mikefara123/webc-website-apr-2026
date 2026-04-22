@@ -48,8 +48,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500&display=swap"/>
 
-<link rel="stylesheet" href="styles/tokens.css?v=17"/>
-<link rel="stylesheet" href="styles/main.css?v=17"/>
+<link rel="stylesheet" href="styles/tokens.css?v=18"/>
+<link rel="stylesheet" href="styles/main.css?v=18"/>
 
 <!-- Structured data: Organization + ProfessionalService + WebSite + FAQPage -->
 <script type="application/ld+json">
@@ -1106,6 +1106,9 @@
               </div>
 
               <div class="wq-est-step__cta">
+                <p class="wq-est-consent">
+                  By submitting, you agree to our <a href="/privacy" target="_blank" rel="noopener">privacy policy</a>. We'll use your details to email your estimate and have a senior engineer follow up once. Nothing else.
+                </p>
                 <button type="submit" class="wq-btn wq-btn--primary wq-btn--lg" id="wq-est-submit-btn">
                   Send my estimate <span>&rarr;</span>
                 </button>
@@ -1164,18 +1167,36 @@
           <a href="https://clutch.co/profile/webcentriq" target="_blank" rel="noopener">Clutch</a>
           <a href="https://share.google/5YQsh9b47Pxh0Ik0K" target="_blank" rel="noopener">Google</a>
           <a href="https://www.linkedin.com/company/webcentriq/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="/privacy">Privacy policy</a>
         </div>
       </div>
       <div class="wq-footer__legal">
         <span>&copy; 2026 WEBCENTRIQ INC.</span>
         <span>OFFICES &middot; SAN DIEGO &middot; TORONTO</span>
         <span>EST. 2017</span>
+        <a href="/privacy" class="wq-footer__legal-link">Privacy</a>
       </div>
     </div>
     <div class="wq-signature" aria-hidden="true">Web<span class="wq-signature__c">C</span>entriq</div>
   </footer>
 
-  <script src="js/main.js?v=17" defer></script>
-  <script src="js/estimator.js?v=17" defer></script>
+  <!-- Cookie / privacy notice — shown on first visit until user dismisses. Choice stored in localStorage. -->
+  <div class="wq-consent" id="wq-consent" role="region" aria-label="Privacy notice" hidden>
+    <div class="wq-consent__inner">
+      <div class="wq-consent__text">
+        <div class="wq-mono-xs">PRIVACY NOTICE</div>
+        <p>
+          We use minimal essential storage to run this site and remember this notice. No tracking cookies, no ad pixels. If you submit the estimator, we process your details to generate and email your estimate. See our <a href="/privacy">privacy policy</a>.
+        </p>
+      </div>
+      <div class="wq-consent__actions">
+        <button type="button" class="wq-btn wq-btn--ghost wq-btn--sm" data-consent="decline">Decline</button>
+        <button type="button" class="wq-btn wq-btn--primary wq-btn--sm" data-consent="accept">Got it</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js?v=18" defer></script>
+  <script src="js/estimator.js?v=18" defer></script>
 </body>
 </html>

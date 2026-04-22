@@ -54,6 +54,8 @@ WebCentriq's project-scoping AI at [/#contact](https://webcentriq.com/#contact) 
 - Offices: San Diego, CA (US) and Markham, ON (Canada)
 - Founded: 2017
 - Live estimator: https://webcentriq.com/#contact
+- Privacy policy: https://webcentriq.com/privacy
+- Privacy contact: privacy@webcentriq.com
 
 ## Optional
 
