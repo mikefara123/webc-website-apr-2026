@@ -356,11 +356,6 @@
   color: var(--text-secondary);
   max-width: 52ch;
 }
-.wq-hero__proof {
-  display: inline;
-  color: var(--text-primary);
-  font-weight: 500;
-}
 .wq-hero__cta { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px; }
 .wq-hero__mesh {
   position: absolute;
