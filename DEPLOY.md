@@ -28,6 +28,7 @@ See `.env.example` for the full list. Set these in the Vercel dashboard (Setting
 | `ESTIMATOR_FROM`    | `WebCentriq <hello@webcentriq.com>` (or your verified subdomain) |
 | `ESTIMATOR_SALES_TO` | `hello@webcentriq.com` (where lead notifications land) |
 | `SCHEDULE_URL`      | `https://calendly.com/hello-webcentriq/30min` (Schedule-a-call CTA in email + PDF) |
+| `ANTHROPIC_MODEL`   | optional — defaults to `claude-haiku-4-5-20251001` (cheapest, fine for scoping). Override with `claude-sonnet-4-6` for richer output or `claude-opus-4-7` for highest quality |
 
 ### 4. Verify the sending domain in Resend
 1. Resend dashboard → **Domains** → Add `webcentriq.com` (or `mail.webcentriq.com` subdomain)

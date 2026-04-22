@@ -4,7 +4,7 @@
 
 import Anthropic from "@anthropic-ai/sdk";
 
-const MODEL = process.env.ANTHROPIC_MODEL || "claude-sonnet-4-6";
+const MODEL = process.env.ANTHROPIC_MODEL || "claude-haiku-4-5-20251001";
 
 const SYSTEM_PROMPT = `You are WebCentriq's project-scoping assistant.
 
