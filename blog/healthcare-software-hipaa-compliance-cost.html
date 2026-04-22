@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="color-scheme" content="dark light"/>
+<title>Healthcare software development: HIPAA cost, timeline, and what gets flagged in review | WebCentriq</title>
+<meta name="description" content="What HIPAA compliance costs in dev hours, where most projects stumble, and what a proper BAA + AWS architecture looks like in 2026."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://webcentriq.com/blog/healthcare-software-hipaa-compliance-cost.html"/>
+<link rel="icon" type="image/png" href="/assets/logo-blue.png"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Healthcare software development: HIPAA cost and timeline"/>
+<meta property="og:description" content="Real HIPAA cost, timeline, and architecture for healthcare software in 2026."/>
+<meta property="og:url" content="https://webcentriq.com/blog/healthcare-software-hipaa-compliance-cost.html"/>
+<meta property="og:image" content="https://webcentriq.com/assets/logo-blue.png"/>
+<meta property="article:published_time" content="2026-04-22"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500&display=swap"/>
+<link rel="stylesheet" href="/styles/tokens.css?v=27"/>
+<link rel="stylesheet" href="/styles/main.css?v=27"/>
+
+<script type="application/ld+json">
+{ "@context": "https://schema.org", "@type": "Article", "headline": "Healthcare software development: HIPAA cost, timeline, and what gets flagged in review", "datePublished": "2026-04-22", "dateModified": "2026-04-22", "author": { "@type": "Organization", "name": "WebCentriq" }, "publisher": { "@type": "Organization", "name": "WebCentriq", "logo": { "@type": "ImageObject", "url": "https://webcentriq.com/assets/logo-blue.png" } }, "mainEntityOfPage": "https://webcentriq.com/blog/healthcare-software-hipaa-compliance-cost.html" }
+</script>
+</head>
+<body>
+<a href="#top" class="wq-skip">Skip to content</a>
+<nav class="wq-nav" id="wq-nav">
+  <div class="wq-nav__inner">
+    <a href="/" class="wq-logo"><img src="/assets/logo-mark-light.png" alt=""/><span class="wq-logo__mark">Web<span class="wq-logo__c">C</span>entriq</span></a>
+    <div class="wq-nav__links"><a href="/#how-we-ship">How we ship</a><a href="/#what-we-build">What we build</a><a href="/#work">Work</a><a href="/#reviews">Reviews</a><a href="/blog/">Blog</a></div>
+    <a href="/#contact" class="wq-btn wq-btn--primary wq-btn--sm">Get your estimate <span>&rarr;</span></a>
+  </div>
+</nav>
+
+<main id="top">
+<article class="wq-article">
+  <div class="wq-container">
+    <header class="wq-article__head">
+      <div class="wq-article__breadcrumb"><a href="/blog/">Blog</a> <span>&rsaquo;</span> <span>Healthcare</span></div>
+      <h1 class="wq-article__h1">Healthcare software development: HIPAA cost, timeline, and what gets flagged in review.</h1>
+      <p class="wq-article__lead">What HIPAA compliance actually costs in dev hours, where most projects stumble, and what a proper BAA + AWS architecture looks like for a practice-management platform in 2026.</p>
+      <div class="wq-article__meta"><span><strong>Updated</strong> April 22, 2026</span><span><strong>Reading time</strong> 6 min</span></div>
+    </header>
+    <div class="wq-article__body">
+
+      <p>If you're a healthcare operator or a founder building anything that touches patient data, HIPAA is the constraint that shapes every other decision. Here's how to think about it pragmatically — cost, timeline, architecture, and the five things that most frequently get flagged in compliance review.</p>
+
+      <h2>What HIPAA adds to your build</h2>
+      <p>For a standard $50K-$80K healthcare software project, HIPAA compliance typically adds:</p>
+      <ul>
+        <li><strong>1–2 additional weeks</strong> of timeline for formal review, documentation, and security hardening.</li>
+        <li><strong>10–20% cost premium</strong> (roughly $5K–$15K) — covering penetration testing, HIPAA-specific architecture decisions, and compliance review time.</li>
+        <li><strong>Infrastructure constraints</strong> that rule out cheap hosting options. You'll be on AWS, Azure, or GCP HIPAA-eligible services — not on Heroku or Vercel's standard tier.</li>
+        <li><strong>Ongoing operational discipline</strong>. Compliance isn't a checkpoint at launch; it's a way of running the system forever after.</li>
+      </ul>
+
+      <h2>The five things most commonly flagged</h2>
+
+      <h3>1. Missing BAA (Business Associate Agreement) coverage</h3>
+      <p>Every vendor that touches PHI needs a signed BAA. Most early-stage projects miss one of: email provider, analytics, error tracking, customer-support tool. We've seen Sentry, Segment, Intercom, Stripe, and SendGrid all cause audit flags because the BAA wasn't in place.</p>
+
+      <h3>2. PHI in logs</h3>
+      <p>Application logs are the #1 place PHI accidentally leaks. A developer adds <code>console.log(patient)</code> for debugging, commits it, and months later it's in CloudWatch. Compliance review catches this every single time. Fix: structured logging with a PHI-redaction middleware built in from day one.</p>
+
+      <h3>3. Unencrypted S3 buckets / databases</h3>
+      <p>At-rest encryption is mandatory. AWS defaults to encryption now, but custom setups often end up with plain-text backups, snapshots, or older buckets not re-encrypted. Review catches these; fix requires re-encrypting at rest.</p>
+
+      <h3>4. Broken access control</h3>
+      <p>Role-based access control that works for the happy path but has edge cases where a receptionist can see a physician's notes. HIPAA requires minimum-necessary access — every API endpoint must enforce it.</p>
+
+      <h3>5. No audit log</h3>
+      <p>Every access to PHI must be logged. Every change must be attributed. Covered entities need to produce audit trails on demand. Skipping this is the single most expensive post-facto remediation — you have to retroactively add it across the entire system.</p>
+
+      <h2>Proper HIPAA architecture on AWS in 2026</h2>
+      <p>For a standard patient-facing platform, a sane HIPAA-compliant AWS architecture looks like:</p>
+      <ul>
+        <li><strong>Compute:</strong> ECS Fargate or Lambda (both HIPAA-eligible).</li>
+        <li><strong>Database:</strong> RDS PostgreSQL in a private subnet, encrypted at rest (KMS), automated backups encrypted and retained 30+ days.</li>
+        <li><strong>Storage:</strong> S3 with bucket policies denying non-TLS requests, KMS encryption, versioning, and access logs.</li>
+        <li><strong>Networking:</strong> VPC with private subnets for compute and DB. Only the ALB is internet-facing. WAF in front for rate limiting + OWASP protection.</li>
+        <li><strong>Authentication:</strong> Cognito or Auth0 (BAA-eligible tier). MFA required for any admin.</li>
+        <li><strong>Audit:</strong> CloudTrail enabled, logs to a separate account, immutable storage for 6+ years.</li>
+        <li><strong>Secrets:</strong> AWS Secrets Manager with rotation. No secrets in environment variables logs can see.</li>
+        <li><strong>BAA:</strong> signed with AWS, plus every third-party service you use (Stripe, SendGrid, Datadog, etc.).</li>
+      </ul>
+
+      <h2>Timeline breakdown for a practice-management platform</h2>
+      <table class="wq-article__table">
+        <thead><tr><th>Phase</th><th>Weeks</th><th>What happens</th></tr></thead>
+        <tbody>
+          <tr><td>Discovery + HIPAA scope</td><td>1</td><td>Confirm which PHI is involved, which vendors, AWS BAA setup.</td></tr>
+          <tr><td>Design + architecture</td><td>2</td><td>Data model, role-based access, audit log schema designed upfront.</td></tr>
+          <tr><td>Core build</td><td>5–8</td><td>Product features; PHI handling, access control, audit built in from day one.</td></tr>
+          <tr><td>QA + security review</td><td>2</td><td>Penetration test, OWASP review, HIPAA checklist, audit log validation.</td></tr>
+          <tr><td>Production cutover</td><td>1</td><td>Launch under BAA; 30 days of close monitoring.</td></tr>
+        </tbody>
+      </table>
+      <p>Total: 11–14 weeks. Cost: $65K–$95K for a mid-complexity practice-management platform. Under 10 weeks is only realistic with an experienced HIPAA-literate team; longer than 16 weeks suggests inefficient process or expanded scope.</p>
+
+      <h2>What separates a HIPAA-ready shop from a non-ready one</h2>
+      <p>Ask three questions on the first scoping call:</p>
+      <ol>
+        <li>"Have you signed BAAs with AWS, Cognito, and the email provider before?" (Experienced shops have these in place already — no need to re-do paperwork.)</li>
+        <li>"How do you handle PHI in error logs?" (If they pause, they haven't thought about it.)</li>
+        <li>"Can you show me a sample audit log schema?" (If yes, they've shipped HIPAA before.)</li>
+      </ol>
+
+      <h2>When HIPAA compliance isn't required</h2>
+      <p>Not everything that touches health data is regulated. HIPAA applies to <em>covered entities</em> (providers, payers, clearinghouses) and their <em>business associates</em>. A wellness app you sell direct-to-consumer is NOT automatically HIPAA. A fitness tracker isn't. A B2B tool sold to providers IS. Get a lawyer to confirm your status before assuming one way or the other.</p>
+
+      <div class="wq-article__cta">
+        <div>
+          <h3>Building in healthcare?</h3>
+          <p>WebCentriq has shipped HIPAA-compliant platforms on AWS since 2019. Describe your project in a paragraph — we'll flag compliance considerations in the estimate so the scope and timeline are realistic from day one.</p>
+        </div>
+        <a class="wq-btn wq-btn--primary" href="/#contact">Get your estimate <span>&rarr;</span></a>
+      </div>
+
+      <section class="wq-article__related">
+        <h2>Related reading</h2>
+        <div class="wq-article__related-grid">
+          <a class="wq-blog-card" href="/blog/custom-software-development-cost-2026.html"><div class="wq-blog-card__eyebrow">PRICING</div><h3 class="wq-blog-card__title">Custom software cost in 2026</h3></a>
+          <a class="wq-blog-card" href="/blog/how-to-hire-software-development-agency.html"><div class="wq-blog-card__eyebrow">HIRING</div><h3 class="wq-blog-card__title">How to hire a software development agency</h3></a>
+          <a class="wq-blog-card" href="/blog/top-custom-software-development-companies-2026.html"><div class="wq-blog-card__eyebrow">COMPARISON</div><h3 class="wq-blog-card__title">The 10 best custom software companies</h3></a>
+        </div>
+      </section>
+    </div>
+  </div>
+</article>
+</main>
+
+<footer class="wq-footer">
+  <div class="wq-container">
+    <div class="wq-footer__grid">
+      <div class="wq-footer__brand"><div class="wq-logo"><img src="/assets/logo-mark-light.png" alt=""/><span class="wq-logo__mark">Web<span class="wq-logo__c">C</span>entriq</span></div><p class="wq-footer__tag">Custom software, web and mobile apps,<br/>and business automation. Since 2017.</p></div>
+      <div class="wq-footer__col"><div class="wq-mono-xs">COMPANY</div><a href="/#how-we-ship">How we ship</a><a href="/#work">Work</a><a href="/#reviews">Reviews</a><a href="/blog/">Blog</a><a href="/#contact">Contact</a></div>
+      <div class="wq-footer__col"><div class="wq-mono-xs">LEGAL</div><a href="/privacy.html">Privacy policy</a><a href="/privacy.html#california">California privacy rights</a></div>
+    </div>
+    <div class="wq-footer__legal"><span>&copy; 2026 WEBCENTRIQ INC.</span><span>OFFICES &middot; SAN DIEGO &middot; TORONTO</span><span>EST. 2017</span></div>
+  </div>
+</footer>
+<script src="/js/main.js?v=27" defer></script>
+</body>
+</html>

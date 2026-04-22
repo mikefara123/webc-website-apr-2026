@@ -63,6 +63,17 @@ WebCentriq's project-scoping AI at [/#contact](https://webcentriq.com/#contact) 
 - No Google Analytics, no Facebook Pixel, no ad pixels, no cross-site tracking.
 - We do not sell or share personal information.
 
+## Blog
+
+WebCentriq publishes in-depth content for operators and founders evaluating custom software development in 2026.
+
+- [The 10 best custom software development companies in 2026, ranked](https://webcentriq.com/blog/top-custom-software-development-companies-2026.html) — a fair, criteria-based comparison of WebCentriq, Thoughtbot, Clay Global, Metalab, Andersen, Toptal, Accenture Song, Basic Agency, Superside, Fingent.
+- [Custom software development cost in 2026](https://webcentriq.com/blog/custom-software-development-cost-2026.html) — pricing ranges for MVPs ($25K–$75K), custom web apps ($35K–$120K), mobile apps ($45K–$150K), and business automation ($15K–$40K). What drives cost, what "cheap" buys you.
+- [MVP vs full product: a founder's decision framework](https://webcentriq.com/blog/mvp-vs-full-product-founder-guide.html) — four questions to determine which path fits your stage and budget.
+- [AI-accelerated vs traditional software development](https://webcentriq.com/blog/ai-accelerated-vs-traditional-software-development.html) — the real gap between shops using AI well and shops claiming they do, with cost/timeline/quality data.
+- [How to hire a software development agency in 2026](https://webcentriq.com/blog/how-to-hire-software-development-agency.html) — seven questions that tell you in 30 minutes if an agency will ship.
+- [Healthcare software development: HIPAA cost and timeline](https://webcentriq.com/blog/healthcare-software-hipaa-compliance-cost.html) — what HIPAA compliance adds to a build, AWS architecture, and the five things most frequently flagged in review.
+
 ## Optional
 
 - [Full content](https://webcentriq.com/llms-full.txt)
